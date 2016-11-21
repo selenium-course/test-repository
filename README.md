@@ -1,2 +1,2 @@
-# test-repository
+# Test Repository
 Selenium WebDriver Course
