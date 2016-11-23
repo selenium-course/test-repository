@@ -11,6 +11,7 @@
     <properties>
         <selenium.version>3.0.1</selenium.version>
         <testng.version>6.9.9</testng.version>
+        <properties.version>2.0.RC5</properties.version>
     </properties>
 
     <dependencies>
@@ -23,6 +24,11 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.qatools.commons</groupId>
+            <artifactId>properties</artifactId>
+            <version>${properties.version}</version>
         </dependency>
     </dependencies>
 
