@@ -2,8 +2,8 @@ package ru.course.selenium.litecart;
 
 import org.testng.annotations.Test;
 import ru.course.selenium.BaseTest;
-import ru.course.selenium.steps.AdminSteps;
-import ru.course.selenium.steps.AdminLoginSteps;
+import ru.course.selenium.steps.admin.AdminSteps;
+import ru.course.selenium.steps.admin.AdminLoginSteps;
 
 /**
  * Created by Aleksei.Klimenko on 22.11.2016.

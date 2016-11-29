@@ -10,10 +10,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Aleksei.Klimenko on 22.11.2016.
  */
-public class BasePage {
-    //TODO Tricky initialization - could affect application start in case of ConfigurationProperties problems
-    protected static final String SITE_URL = ConfigurationProperties.getInstance().getEndpoint();
-
+public abstract class BasePage {
     protected FluentWait getFluentWait(){
         return new FluentWait(DriverFactory.getInstance().getDriver())
                 .withTimeout(10, TimeUnit.SECONDS)

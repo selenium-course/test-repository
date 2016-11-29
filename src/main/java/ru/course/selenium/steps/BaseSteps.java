@@ -6,9 +6,9 @@ import ru.course.selenium.core.DriverFactory;
 /**
  * Created by Aleksei.Klimenko on 22.11.2016.
  */
-public class BaseSteps {
+public abstract class BaseSteps {
 
-    protected WebDriver getDriver(){
+    public WebDriver getDriver(){
         return DriverFactory.getInstance().getDriver();
     }
 }

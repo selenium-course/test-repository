@@ -1,12 +1,13 @@
-package ru.course.selenium.pages;
+package ru.course.selenium.pages.admin;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.course.selenium.pages.BasePage;
 
 /**
  * Created by Aleksei.Klimenko on 22.11.2016.
  */
-public class AdminLoginPage extends BasePage{
+public class AdminLoginPage extends BasePage {
     public static final String LOCAL_URL = "/admin/login.php";
 
     @FindBy(name = "username")
@@ -28,9 +29,5 @@ public class AdminLoginPage extends BasePage{
 
     public void pressLoginButton() {
         this.loginButton.click();
-    }
-
-    public static String getPageUrl(){
-        return BasePage.SITE_URL + LOCAL_URL;
     }
 }

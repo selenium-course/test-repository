@@ -11,7 +11,7 @@ import ru.qatools.properties.Resource;
 public class ConfigurationProperties {
 
     @Property("litecart.endpoint")
-    public String endpoint = "localhost";
+    private String endpoint = "localhost";
 
     @Property("test.browser.type")
     private BrowserType browserType = BrowserType.CHROME;
