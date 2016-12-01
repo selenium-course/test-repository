@@ -14,13 +14,8 @@ public class AdminPage extends BaseAdminPage{
     }
 
     @Override
-    public String getPageTitle() {
+    public String getPageTitleExpected() {
         return PAGE_TITLE;
-    }
-
-    @Override
-    protected String getPageTitleLocal() {
-        return "";
     }
 
     @Override

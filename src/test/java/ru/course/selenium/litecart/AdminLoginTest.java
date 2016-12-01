@@ -2,6 +2,7 @@ package ru.course.selenium.litecart;
 
 import org.testng.annotations.Test;
 import ru.course.selenium.BaseTest;
+import ru.course.selenium.domain.UserEnum;
 import ru.course.selenium.steps.admin.AdminSteps;
 import ru.course.selenium.steps.admin.AdminLoginSteps;
 
@@ -15,7 +16,7 @@ public class AdminLoginTest extends BaseTest{
     @Test
     public void loginTest() {
         adminLoginSteps.openLoginPage();
-        AdminSteps adminSteps = adminLoginSteps.loginAs("admin", "admin");
+        AdminSteps adminSteps = adminLoginSteps.loginAs(UserEnum.ADMIN);
         System.out.println("Version = " + adminSteps.getVersion());
     }
 }

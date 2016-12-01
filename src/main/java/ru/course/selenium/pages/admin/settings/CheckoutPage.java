@@ -15,7 +15,7 @@ public class CheckoutPage extends BaseAdminPage {
     }
 
     @Override
-    protected String getPageTitleLocal() {
+    public String getPageTitleExpected() {
         return PAGE_TITLE_LOCAL;
     }
 

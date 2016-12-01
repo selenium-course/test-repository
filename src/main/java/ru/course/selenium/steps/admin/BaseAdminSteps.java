@@ -35,11 +35,11 @@ public abstract class BaseAdminSteps<T extends BaseAdminPage> extends BaseSteps{
     }
 
     public String getPageTitleExpected(){
-        return page.getPageTitle();
+        return page.getPageTitleExpected();
     }
 
     public String getPageTitle(){
-        return getDriver().getTitle();
+        return page.getPageTitle();
     }
 
     protected T getPage(){

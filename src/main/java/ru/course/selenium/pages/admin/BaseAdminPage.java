@@ -16,13 +16,16 @@ public abstract class BaseAdminPage extends BasePage {
     @FindBy(id = "platform")
     private WebElement version;
 
+    @FindBy(tagName = "h1")
+    private WebElement pageTitle;
+
     private ApplicationMenu menu;
 
     public BaseAdminPage(WebDriver driver){
         this.menu = PageFactory.initElements(driver, ApplicationMenu.class);
     }
 
-    protected abstract String getPageTitleLocal();
+    public abstract String getPageTitleExpected();
 
     protected abstract String getPageUrlLocal();
 
@@ -39,7 +42,7 @@ public abstract class BaseAdminPage extends BasePage {
     }
 
     public String getPageTitle(){
-        return String.format("%s | My Store", getPageTitleLocal());
+        return this.pageTitle.getText();
     }
 
     public String getPageUrl(){
