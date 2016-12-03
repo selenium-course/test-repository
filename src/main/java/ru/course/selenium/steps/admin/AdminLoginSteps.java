@@ -13,6 +13,10 @@ public class AdminLoginSteps extends BaseSteps {
 
     private AdminLoginPage adminLoginPage;
 
+    public AdminLoginSteps(){
+        this.adminLoginPage = PageFactory.initElements(getDriver(), AdminLoginPage.class);
+    }
+
     public AdminSteps loginAs(UserEnum user){
         return this.loginAs(user.getUsername(), user.getPassword());
     }
@@ -26,7 +30,6 @@ public class AdminLoginSteps extends BaseSteps {
 
     public AdminLoginSteps openLoginPage(){
         getDriver().get(ConfigurationProperties.getInstance().getEndpoint() + AdminLoginPage.LOCAL_URL);
-        this.adminLoginPage = PageFactory.initElements(getDriver(), AdminLoginPage.class);
         return this;
     }
 }

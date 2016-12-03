@@ -37,10 +37,6 @@ public abstract class BaseAdminPage extends BasePage {
         return menu;
     }
 
-    protected static String getPageTitle(String localTitle){
-        return String.format("%s | My Store", localTitle);
-    }
-
     public String getPageTitle(){
         return this.pageTitle.getText();
     }
