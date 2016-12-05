@@ -43,7 +43,7 @@ public class ProductDiscountTest extends BaseTest {
         assertThat("Product discount price does not match name in campaign list", discountPriceInList, equalTo(discountPrice));
 
         List<String> actualProductStyles = productSteps.getDiscountStyles();
-        String[] expectedProductStyles = new String[]{"rgba(119, 119, 119, 1)", "14.4px", "line-through", "rgba(204, 0, 0, 1)", "18px", "bold"};
-        assertThat("Discount prices style does not match expected values", actualStyles, contains(expectedStyles));
+        String[] expectedProductStyles = new String[]{"rgba(102, 102, 102, 1)", "16px", "line-through", "rgba(204, 0, 0, 1)", "22px", "bold"};
+        assertThat("Discount prices style does not match expected values", actualProductStyles, contains(expectedProductStyles));
     }
 }
