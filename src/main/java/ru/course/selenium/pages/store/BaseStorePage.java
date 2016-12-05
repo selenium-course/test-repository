@@ -10,22 +10,22 @@ import ru.course.selenium.steps.store.CreateAccountSteps;
  */
 public abstract class BaseStorePage extends BasePage {
 
-    @FindBy(id = "nav#site-menu li.general-0")
+    @FindBy(css = "nav#site-menu li.general-0")
     private WebElement buttonHome;
 
-    @FindBy(id = "form[name=login_form] input[name=email]")
+    @FindBy(css = "form[name=login_form] input[name=email]")
     private WebElement fieldEmail;
 
-    @FindBy(id = "form[name=login_form] input[name=password]")
+    @FindBy(css = "form[name=login_form] input[name=password]")
     private WebElement fieldPassword;
 
-    @FindBy(id = "form[name=login_form] input[name=password]")
+    @FindBy(css = "form[name=login_form] button[name=login]")
     private WebElement buttonLogin;
 
-    @FindBy(id = "form[name=login_form] a[href$=create_account]")
+    @FindBy(css = "form[name=login_form] a[href$=create_account]")
     private WebElement linkCreateAccount;
 
-    @FindBy(id = "div#box-account a[href$=logout]")
+    @FindBy(css = "div#box-account a[href$=logout]")
     private WebElement linkLogout;
 
     public void clickHome() {

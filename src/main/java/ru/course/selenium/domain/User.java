@@ -34,7 +34,7 @@ public class User {
         user.address1 = "Nevskiy blvd 123, apt 5";
         user.postcode = "123456";
         user.city = "Barentsburg";
-        user.email = "user-" + RandomStringUtils.randomNumeric(5) + "mail.com";
+        user.email = "user-" + RandomStringUtils.randomNumeric(5) + "@mail.com";
         user.phone = "+79111234567";
         user.password = "password";
         return user;

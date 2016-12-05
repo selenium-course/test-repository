@@ -14,34 +14,34 @@ import java.util.List;
  */
 public class CreateAccountPage extends BasePage{
 
-    @FindBy(css = "form.customer_form input[name=firstname]")
+    @FindBy(css = "form[name=customer_form] input[name=firstname]")
     private WebElement fieldFirstName;
 
-    @FindBy(css = "form.customer_form input[name=lastname]")
+    @FindBy(css = "form[name=customer_form] input[name=lastname]")
     private WebElement fieldLastName;
 
-    @FindBy(css = "form.customer_form input[name=address1]")
+    @FindBy(css = "form[name=customer_form] input[name=address1]")
     private WebElement fieldAddress1;
 
-    @FindBy(css = "form.customer_form input[name=postcode]")
+    @FindBy(css = "form[name=customer_form] input[name=postcode]")
     private WebElement fieldPostcode;
 
-    @FindBy(css = "form.customer_form input[name=city]")
+    @FindBy(css = "form[name=customer_form] input[name=city]")
     private WebElement fieldCity;
 
-    @FindBy(css = "form.customer_form input[name=email]")
+    @FindBy(css = "form[name=customer_form] input[name=email]")
     private WebElement fieldEmail;
 
-    @FindBy(css = "form.customer_form input[name=phone]")
+    @FindBy(css = "form[name=customer_form] input[name=phone]")
     private WebElement fieldPhone;
 
-    @FindBy(css = "form.customer_form input[name=password]")
+    @FindBy(css = "form[name=customer_form] input[name=password]")
     private WebElement fieldDesiredPassword;
 
-    @FindBy(css = "form.customer_form input[name=confirmed_password]")
+    @FindBy(css = "form[name=customer_form] input[name=confirmed_password]")
     private WebElement fieldConfirmPassword;
 
-    @FindBy(css = "form.customer_form button[name=create_account]")
+    @FindBy(css = "form[name=customer_form] button[name=create_account]")
     private WebElement buttonCreateAccount;
 
     public void clickCreateAccount(){

@@ -25,13 +25,13 @@ public class ProductPage extends BaseStorePage {
     @FindBy(css = "div#box-product h1")
     private WebElement productName;
 
-    @FindBy(css = "div#box-product div.price-wrapper span.price")
+    @FindBy(css = PRODUCT_PRICE_CSS)
     private WebElement productPrice;
 
-    @FindBy(css = "div#box-product s.regular-price")
+    @FindBy(css = PRODUCT_REGULAR_PRICE_CSS)
     private WebElement productRegularPrice;
 
-    @FindBy(css = "div#box-product strong.campaign-price")
+    @FindBy(css = PRODUCT_DISCOUNT_PRICE_CSS)
     private WebElement productDiscountPrice;
 
     public ProductPage(WebDriver driver){
