@@ -23,13 +23,6 @@ public class StoreSteps extends BaseStoreSteps{
         return this;
     }
 
-    public StoreSteps loginAs(String email, String password){
-        storePage.setEmail(email);
-        storePage.setPassword(password);
-        storePage.clickLogin();
-        return this;
-    }
-
     public ProductSteps openProductPage(WebElement productElement){
         productElement.click();
         return new ProductSteps();

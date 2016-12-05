@@ -3,6 +3,7 @@ package ru.course.selenium.pages.store;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ru.course.selenium.pages.BasePage;
+import ru.course.selenium.steps.store.CreateAccountSteps;
 
 /**
  * Created by Aleksei.Klimenko on 01.12.2016.
@@ -21,6 +22,12 @@ public abstract class BaseStorePage extends BasePage {
     @FindBy(id = "form[name=login_form] input[name=password]")
     private WebElement buttonLogin;
 
+    @FindBy(id = "form[name=login_form] a[href$=create_account]")
+    private WebElement linkCreateAccount;
+
+    @FindBy(id = "div#box-account a[href$=logout]")
+    private WebElement linkLogout;
+
     public void clickHome() {
         buttonHome.click();
     }
@@ -35,5 +42,13 @@ public abstract class BaseStorePage extends BasePage {
 
     public void clickLogin() {
         buttonLogin.click();
+    }
+
+    public void clickLogout() {
+        linkLogout.click();
+    }
+
+    public void clickCreateAccount() {
+        linkCreateAccount.click();
     }
 }

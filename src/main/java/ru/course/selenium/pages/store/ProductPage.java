@@ -1,17 +1,23 @@
 package ru.course.selenium.pages.store;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ru.course.selenium.core.LitecartWebException;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.openqa.selenium.NoSuchElementException;
 
 /**
  * Created by Aleksei.Klimenko on 04.12.2016.
  */
 public class ProductPage extends BaseStorePage {
+    private static final String PRODUCT_PRICE_CSS = "div#box-product div.price-wrapper span.price";
+    private static final String PRODUCT_REGULAR_PRICE_CSS = "div#box-product s.regular-price";
+    private static final String PRODUCT_DISCOUNT_PRICE_CSS = "div#box-product strong.campaign-price";
+
+    private WebDriver driver;
 
     @FindBy(css = "div#box-similar-products li.product")
     private List<WebElement> similarProducts;
@@ -28,6 +34,10 @@ public class ProductPage extends BaseStorePage {
     @FindBy(css = "div#box-product strong.campaign-price")
     private WebElement productDiscountPrice;
 
+    public ProductPage(WebDriver driver){
+        this.driver = driver;
+    }
+
     public List<WebElement> getSimilarProducts(){
         return this.similarProducts;
     }
@@ -37,17 +47,12 @@ public class ProductPage extends BaseStorePage {
     }
 
     public Boolean hasProductDiscount() {
-        try {
-            if (productPrice.isDisplayed()) {
-                return Boolean.FALSE;
-            }
-            if (productRegularPrice.isDisplayed() && productDiscountPrice.isDisplayed()) {
-                return Boolean.TRUE;
-            }
-        } catch (NoSuchElementException ex) {
+        if (driver.findElements(By.cssSelector(PRODUCT_PRICE_CSS)).size() == 0 &&
+                driver.findElements(By.cssSelector(PRODUCT_REGULAR_PRICE_CSS)).size() == 1 &&
+                driver.findElements(By.cssSelector(PRODUCT_DISCOUNT_PRICE_CSS)).size() == 1) {
             return Boolean.TRUE;
         }
-        throw new LitecartWebException("Could not correctly determine product price");
+        return Boolean.FALSE;
     }
 
     public String getProductPrice() {

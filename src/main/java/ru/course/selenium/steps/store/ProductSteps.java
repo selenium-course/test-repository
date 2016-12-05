@@ -17,18 +17,6 @@ public class ProductSteps extends BaseStoreSteps{
         this.productPage = (ProductPage)super.page;
     }
 
-    public ProductSteps loginAs(String email, String password){
-        productPage.setEmail(email);
-        productPage.setPassword(password);
-        productPage.clickLogin();
-        return this;
-    }
-
-    public StoreSteps toHome(){
-        productPage.clickHome();
-        return new StoreSteps();
-    }
-
     public List<WebElement> getSimilarProducts(){
         return productPage.getSimilarProducts();
     }
