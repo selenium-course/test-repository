@@ -11,7 +11,6 @@ import ru.course.selenium.steps.admin.geozones.EditGeoZoneSteps;
 import ru.course.selenium.steps.admin.geozones.GeoZonesSteps;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -26,7 +25,7 @@ public class CountriesSortTest extends BaseTest {
 
     private AdminLoginSteps loginSteps = new AdminLoginSteps();
 
-    @Test(enabled = false)
+    @Test
     public void countriesAlphabeticalSortTest() {
         CountriesSteps countriesSteps = loginSteps.openLoginPage()
                 .loginAs(UserEnum.ADMIN)
@@ -38,7 +37,7 @@ public class CountriesSortTest extends BaseTest {
         assertThat("Country names are not alphabetically sorted", actualList, contains(expectedList.toArray()));
     }
 
-    @Test(enabled = false)
+    @Test
     public void countryZonesAlphabeticalSortTest() {
         CountriesSteps countriesSteps = loginSteps.openLoginPage()
                 .loginAs(UserEnum.ADMIN)

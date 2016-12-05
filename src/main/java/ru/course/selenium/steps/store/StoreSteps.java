@@ -1,9 +1,6 @@
 package ru.course.selenium.steps.store;
 
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import ru.course.selenium.core.ConfigurationProperties;
 import ru.course.selenium.pages.store.StorePage;
 
@@ -33,6 +30,11 @@ public class StoreSteps extends BaseStoreSteps{
         return this;
     }
 
+    public ProductSteps openProductPage(WebElement productElement){
+        productElement.click();
+        return new ProductSteps();
+    }
+
     public List<WebElement> getMostPopular(){
         return storePage.getMostPopular();
     }
@@ -45,7 +47,31 @@ public class StoreSteps extends BaseStoreSteps{
         return storePage.getLatestProducts();
     }
 
-    public Integer getProductStickersCount(WebElement element){
-        return element.findElements(By.cssSelector("div.sticker")).size();
+    public Integer getProductStickersCount(WebElement productElement){
+        return storePage.getProductStickersCount(productElement);
+    }
+
+    public String getProductName(WebElement productElement){
+        return storePage.getProductName(productElement);
+    }
+
+    public Boolean hasProductDiscount(WebElement productElement){
+        return storePage.hasProductDiscount(productElement);
+    }
+
+    public String getProductPrice(WebElement productElement){
+        return storePage.getProductPrice(productElement);
+    }
+
+    public String getProductDiscountPrice(WebElement productElement){
+        return storePage.getProductDiscountPrice(productElement);
+    }
+
+    public String getProductRegularPrice(WebElement productElement){
+        return storePage.getProductRegularPrice(productElement);
+    }
+
+    public List<String> getDiscountStyles(WebElement productElement){
+        return storePage.getDiscountStyles(productElement);
     }
 }
