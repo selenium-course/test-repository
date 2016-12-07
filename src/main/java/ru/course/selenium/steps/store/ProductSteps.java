@@ -44,4 +44,9 @@ public class ProductSteps extends BaseStoreSteps{
     public List<String> getDiscountStyles(){
         return productPage.getDiscountStyles();
     }
+
+    public ProductSteps addProductToCart(){
+        productPage.addToCart();
+        return this;
+    }
 }

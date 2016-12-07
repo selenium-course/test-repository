@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 import ru.course.selenium.core.LitecartWebException;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class ProductPage extends BaseStorePage {
     private static final String PRODUCT_PRICE_CSS = "div#box-product div.price-wrapper span.price";
     private static final String PRODUCT_REGULAR_PRICE_CSS = "div#box-product s.regular-price";
     private static final String PRODUCT_DISCOUNT_PRICE_CSS = "div#box-product strong.campaign-price";
+    private static final String PRODUCT_OPTION_CSS = "form[name=buy_now_form] select[name='options[Size]']";
 
     private WebDriver driver;
 
@@ -33,6 +35,9 @@ public class ProductPage extends BaseStorePage {
 
     @FindBy(css = PRODUCT_DISCOUNT_PRICE_CSS)
     private WebElement productDiscountPrice;
+
+    @FindBy(css = "form[name=buy_now_form] button[name=add_cart_product]")
+    private WebElement buttonAddToCart;
 
     public ProductPage(WebDriver driver){
         this.driver = driver;
@@ -89,5 +94,13 @@ public class ProductPage extends BaseStorePage {
             styleList.add(productDiscountPrice.getCssValue("font-weight"));
         }
         return styleList;
+    }
+
+    public void addToCart(){
+        List<WebElement> option = driver.findElements(By.cssSelector(PRODUCT_OPTION_CSS));
+        if (option.size() == 1) {
+            new Select(option.get(0)).selectByIndex(1);
+        }
+        buttonAddToCart.click();
     }
 }

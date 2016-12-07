@@ -2,6 +2,7 @@ package ru.course.selenium.steps.store;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import ru.course.selenium.domain.User;
 import ru.course.selenium.pages.store.BaseStorePage;
 import ru.course.selenium.steps.BaseSteps;
@@ -44,5 +45,21 @@ public abstract class BaseStoreSteps<T extends BaseStorePage> extends BaseSteps{
     public StoreSteps logout(){
         page.clickLogout();
         return new StoreSteps();
+    }
+
+    public CartSteps cartCheckout(){
+        page.clickCheckout();
+        return new CartSteps();
+    }
+
+    public Integer getCartQuantity(){
+        return page.getCartQuantity();
+    }
+
+    public BaseStoreSteps<T> waitQuantityChanged(Integer expectedValue){
+        getWaiter().until(ExpectedConditions.textToBePresentInElementLocated(
+                By.cssSelector(BaseStorePage.CART_QUANTITY_CSS),
+                expectedValue.toString()));
+        return this;
     }
 }

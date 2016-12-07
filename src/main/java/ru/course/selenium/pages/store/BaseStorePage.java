@@ -9,6 +9,7 @@ import ru.course.selenium.steps.store.CreateAccountSteps;
  * Created by Aleksei.Klimenko on 01.12.2016.
  */
 public abstract class BaseStorePage extends BasePage {
+    public static final String CART_QUANTITY_CSS = "div#cart span.quantity";
 
     @FindBy(css = "nav#site-menu li.general-0")
     private WebElement buttonHome;
@@ -27,6 +28,12 @@ public abstract class BaseStorePage extends BasePage {
 
     @FindBy(css = "div#box-account a[href$=logout]")
     private WebElement linkLogout;
+
+    @FindBy(css = CART_QUANTITY_CSS)
+    private WebElement cartQuantity;
+
+    @FindBy(css = "div#cart a[href$=checkout]")
+    private WebElement linkCheckout;
 
     public void clickHome() {
         buttonHome.click();
@@ -50,5 +57,13 @@ public abstract class BaseStorePage extends BasePage {
 
     public void clickCreateAccount() {
         linkCreateAccount.click();
+    }
+
+    public void clickCheckout() {
+        linkCheckout.click();
+    }
+
+    public Integer getCartQuantity(){
+        return Integer.parseInt(cartQuantity.getText());
     }
 }
