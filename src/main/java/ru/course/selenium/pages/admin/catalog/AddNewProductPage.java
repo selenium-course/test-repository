@@ -77,7 +77,7 @@ public class AddNewProductPage extends BaseAdminPage {
     @FindBy(css = "div#tab-information input[name='short_description[en]']")
     private WebElement fieldShortDescription;
 
-    @FindBy(css = "div#tab-information textarea[name='description[en]']")
+    @FindBy(css = "div#tab-information div.trumbowyg-editor")
     private WebElement fieldDescription;
 
     @FindBy(css = "div#tab-information input[name='head_title[en]']")

@@ -4,7 +4,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import ru.course.selenium.pages.admin.BaseAdminPage;
 import ru.course.selenium.pages.admin.TableAdminPage;
 
 import java.util.List;
