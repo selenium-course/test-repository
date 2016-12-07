@@ -1,14 +1,30 @@
 package ru.course.selenium.pages.admin.catalog;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import ru.course.selenium.pages.admin.BaseAdminPage;
+import ru.course.selenium.pages.admin.TableAdminPage;
+
+import java.util.List;
 
 /**
  * Created by Aleksei.Klimenko on 27.11.2016.
  */
-public class CatalogPage extends BaseAdminPage {
+public class CatalogPage extends TableAdminPage {
     public static final String PAGE_TITLE_LOCAL = "Catalog";
     public static final String LOCAL_URL = "/admin/?app=catalog&doc=catalog";
+    private static final Integer COLUMN_NAME = 3;
+
+    @FindBy(css = "td#content input[name=query]")
+    private WebElement fieldSearch;
+
+    @FindBy(xpath = "//td[@id='content']//a[contains(.,'Add New Category')]")
+    private WebElement buttonAddNewCategory;
+
+    @FindBy(xpath = "//td[@id='content']//a[contains(.,'Add New Product')]")
+    private WebElement buttonAddNewProduct;
 
     public CatalogPage(WebDriver driver) {
         super(driver);
@@ -22,5 +38,18 @@ public class CatalogPage extends BaseAdminPage {
     @Override
     protected String getPageUrlLocal() {
         return LOCAL_URL;
+    }
+
+    public List<String> getProductNameValues(){
+        return getColumnValuesList(COLUMN_NAME);
+    }
+
+    public void clickAddNewProduct(){
+        buttonAddNewProduct.click();
+    }
+
+    public void searchProduct(String product){
+        fieldSearch.sendKeys(product);
+        fieldSearch.sendKeys(Keys.RETURN);
     }
 }

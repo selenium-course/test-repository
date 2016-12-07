@@ -1,7 +1,6 @@
 package ru.course.selenium.domain;
 
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by Aleksei.Klimenko on 05.12.2016.
