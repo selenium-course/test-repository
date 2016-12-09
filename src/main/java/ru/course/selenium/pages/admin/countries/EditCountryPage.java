@@ -2,6 +2,8 @@ package ru.course.selenium.pages.admin.countries;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import ru.course.selenium.pages.admin.TableAdminPage;
 
 import java.util.List;
@@ -14,6 +16,9 @@ public class EditCountryPage extends TableAdminPage{
     public static final String LOCAL_URL = "/admin/?app=countries&doc=edit_country&country_code=";
     private static final Integer COLUMN_NAME = 3;
     private static final String COLUMN_XPATH_TEMPLATE = "//table[@class='dataTable']//td[%d]/input[@type='hidden']/..";
+
+    @FindBy(css = "td#content table a[target=_blank]")
+    private List<WebElement> externalWikiLinks;
 
     public EditCountryPage(WebDriver driver) {
         super(driver);
@@ -36,5 +41,9 @@ public class EditCountryPage extends TableAdminPage{
 
     public List<String> getZoneNameValues(){
         return getColumnValuesList(COLUMN_NAME);
+    }
+
+    public List<WebElement> getWikiLinks(){
+        return externalWikiLinks;
     }
 }

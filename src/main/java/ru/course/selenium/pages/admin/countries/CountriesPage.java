@@ -3,6 +3,7 @@ package ru.course.selenium.pages.admin.countries;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import ru.course.selenium.pages.admin.TableAdminPage;
 
 import java.util.List;
@@ -15,6 +16,9 @@ public class CountriesPage extends TableAdminPage {
     public static final String LOCAL_URL = "/admin/?app=countries&doc=countries";
     private static final Integer COLUMN_NAME = 5;
     private static final Integer COLUMN_ZONES = 6;
+
+    @FindBy(xpath = "//td[@id='content']//a[contains(.,'Add New Country')]")
+    private WebElement buttonAddNewCountry;
 
     public CountriesPage(WebDriver driver) {
         super(driver);
@@ -44,5 +48,9 @@ public class CountriesPage extends TableAdminPage {
 
     public void editCountry(WebElement countryElement){
         countryElement.findElement(By.cssSelector("a")).click();
+    }
+
+    public void clickAddNewCountry(){
+        buttonAddNewCountry.click();
     }
 }

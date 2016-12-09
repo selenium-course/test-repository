@@ -33,4 +33,9 @@ public class CountriesSteps extends BaseAdminSteps {
         countriesPage.editCountry(countryElement);
         return new EditCountrySteps();
     }
+
+    public EditCountrySteps addNewCountry(){
+        countriesPage.clickAddNewCountry();
+        return new EditCountrySteps();
+    }
 }

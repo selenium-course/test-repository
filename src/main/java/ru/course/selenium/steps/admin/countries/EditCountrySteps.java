@@ -1,5 +1,6 @@
 package ru.course.selenium.steps.admin.countries;
 
+import org.openqa.selenium.WebElement;
 import ru.course.selenium.pages.admin.countries.EditCountryPage;
 import ru.course.selenium.steps.admin.BaseAdminSteps;
 
@@ -21,4 +22,7 @@ public class EditCountrySteps extends BaseAdminSteps {
         return editCountryPage.getZoneNameValues();
     }
 
+    public List<WebElement> getWikiLinks(){
+        return editCountryPage.getWikiLinks();
+    }
 }
