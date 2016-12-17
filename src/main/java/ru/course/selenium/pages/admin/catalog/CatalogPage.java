@@ -1,5 +1,6 @@
 package ru.course.selenium.pages.admin.catalog;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -41,6 +42,18 @@ public class CatalogPage extends TableAdminPage {
 
     public List<String> getProductNameValues(){
         return getColumnValuesList(COLUMN_NAME);
+    }
+
+    public List<WebElement> getProductNameElements(){
+        return driver.findElements(By.cssSelector("table.dataTable tr.row img+a"));
+    }
+
+    public List<WebElement> getCategoryNameElements(){
+        return driver.findElements(By.cssSelector("table.dataTable tr.row i+a"));
+    }
+
+    public void editProduct(WebElement productElement){
+        productElement.click();
     }
 
     public void clickAddNewProduct(){

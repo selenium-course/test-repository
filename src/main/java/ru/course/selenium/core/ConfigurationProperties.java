@@ -22,6 +22,9 @@ public class ConfigurationProperties {
     @Property("test.browser.pageload.wait")
     private Long pageLoadWait = 30L;
 
+    @Property("test.hub.endpoint")
+    private String hubEndpoint;
+
     @Property("firefox.path.esr")
     private String firefoxEsrPath;
 
@@ -59,6 +62,10 @@ public class ConfigurationProperties {
 
     public Long getPageLoadWait() {
         return pageLoadWait;
+    }
+
+    public String getHubEndpoint() {
+        return hubEndpoint;
     }
 
     public String getFirefoxEsrPath() {

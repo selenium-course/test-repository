@@ -1,5 +1,6 @@
 package ru.course.selenium.steps.admin.catalog;
 
+import org.openqa.selenium.WebElement;
 import ru.course.selenium.pages.admin.catalog.CatalogPage;
 import ru.course.selenium.steps.admin.BaseAdminSteps;
 
@@ -24,6 +25,19 @@ public class CatalogSteps extends BaseAdminSteps {
 
     public List<String> getProductNameValues(){
         return catalogPage.getProductNameValues();
+    }
+
+    public List<WebElement> getProductNameElements(){
+        return catalogPage.getProductNameElements();
+    }
+
+    public List<WebElement> getCategoryNameElements(){
+        return catalogPage.getCategoryNameElements();
+    }
+
+    public AddNewProductSteps editProduct(WebElement productElement){
+        catalogPage.editProduct(productElement);
+        return new AddNewProductSteps();
     }
 
     public CatalogSteps searchProduct(String product){

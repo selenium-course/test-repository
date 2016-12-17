@@ -7,8 +7,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -41,6 +45,15 @@ public class DriverFactory {
             switch (type) {
                 case CHROME:
                     driver = new ChromeDriver();
+                    break;
+                case CHROME_REMOTE:
+                    URL hubUrl;
+                    try {
+                        hubUrl = new URL(ConfigurationProperties.getInstance().getHubEndpoint());
+                    } catch (MalformedURLException ex) {
+                        throw new IllegalArgumentException("Incorrect Hub URL format", ex);
+                    }
+                    driver = new RemoteWebDriver(hubUrl, DesiredCapabilities.chrome());
                     break;
                 case FIREFOX:
                     driver = new FirefoxDriver();

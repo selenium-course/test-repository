@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public abstract class TableAdminPage extends BaseAdminPage {
     private static final String COLUMN_CSS_TEMPLATE = "table.dataTable tr:not(.footer) td:nth-of-type(%d)";
 
-    private WebDriver driver;
+    protected WebDriver driver;
 
     @FindBy(css = "table.dataTable tr.row")
     private List<WebElement> rowsList;

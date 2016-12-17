@@ -5,6 +5,7 @@ package ru.course.selenium.core;
  */
 public enum BrowserType {
     CHROME,
+    CHROME_REMOTE,
     FIREFOX,
     FIREFOX_45ESR,
     FIREFOX_NIGHTLY,
