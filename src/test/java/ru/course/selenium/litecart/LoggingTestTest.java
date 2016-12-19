@@ -28,7 +28,7 @@ public class LoggingTestTest extends BaseTest{
             assertThat("There are unexpected messages in Browser log",
                     editProductSteps.getDriver().manage().logs().get("browser").filter(Level.ALL),
                     hasSize(0));
-            catalogSteps = editProductSteps.toCatalog();
+            editProductSteps.toCatalog();
         }
     }
 }
