@@ -37,8 +37,8 @@ public class AdminPageTitlesTest extends BaseTest {
 
     @Test
     public void adminPageTitlesEasyTest() {
-        adminLoginSteps.openLoginPage();
-        AdminSteps adminSteps = adminLoginSteps.loginAs(UserEnum.ADMIN);
+        AdminSteps adminSteps = adminLoginSteps.openLoginPage()
+                .loginAs(UserEnum.ADMIN);
 
         for (int i = 0; i < adminSteps.getMainMenuItems().size(); i++){
             ((WebElement)adminSteps.getMainMenuItems().get(i)).click();
@@ -56,8 +56,8 @@ public class AdminPageTitlesTest extends BaseTest {
 
     @Test(enabled = false)
     public void adminPageTitlesHardcoreTest() {
-        adminLoginSteps.openLoginPage();
-        AdminSteps adminSteps = adminLoginSteps.loginAs(UserEnum.ADMIN);
+        AdminSteps adminSteps = adminLoginSteps.openLoginPage()
+                .loginAs(UserEnum.ADMIN);
 
         TemplateSteps appearance = adminSteps.toAppearance();
         assertThat("Title does not match expected", appearance.getPageTitle(), equalTo(appearance.getPageTitleExpected()));

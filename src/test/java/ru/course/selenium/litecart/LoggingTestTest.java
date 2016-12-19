@@ -1,14 +1,7 @@
 package ru.course.selenium.litecart;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import ru.course.selenium.BaseTest;
-import ru.course.selenium.core.ConfigurationProperties;
-import ru.course.selenium.core.DriverEventListener;
 import ru.course.selenium.domain.UserEnum;
 import ru.course.selenium.steps.admin.AdminLoginSteps;
 import ru.course.selenium.steps.admin.catalog.AddNewProductSteps;

@@ -31,6 +31,9 @@ public class ConfigurationProperties {
     @Property("firefox.path.nightly")
     private String firefoxNightlyPath;
 
+    @Property("test.screenshots.path")
+    private String screenshotsPath = "target/";
+
     private static ConfigurationProperties configProperties;
 
     private ConfigurationProperties(){
@@ -74,5 +77,9 @@ public class ConfigurationProperties {
 
     public String getFirefoxNightlyPath() {
         return firefoxNightlyPath;
+    }
+
+    public String getScreenshotsPath() {
+        return screenshotsPath;
     }
 }

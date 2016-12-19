@@ -51,13 +51,13 @@ public class CountriesSortTest extends BaseTest {
         List<String> actualList;
         List<String> expectedList;
         EditCountrySteps editCountrySteps;
-        for (int i : countryWithZones){
+        for (int i : countryWithZones) {
             editCountrySteps = countriesSteps.editCountry(countriesSteps.getCountryNameElements().get(i));
             actualList = editCountrySteps.getZoneNameValues();
             expectedList = new ArrayList<>(actualList);
             Collections.sort(expectedList);
             assertThat("Country zone names are not alphabetically sorted", actualList, contains(expectedList.toArray()));
-            countriesSteps = editCountrySteps.toCountries();
+            editCountrySteps.toCountries();
         }
     }
 
@@ -71,13 +71,13 @@ public class CountriesSortTest extends BaseTest {
         List<String> expectedList;
         EditGeoZoneSteps editZoneSteps;
 
-        for (int i=0; i < geoZonesSteps.getGeoZoneNameElements().size(); i++){
+        for (int i = 0; i < geoZonesSteps.getGeoZoneNameElements().size(); i++) {
             editZoneSteps = geoZonesSteps.editGeoZone(geoZonesSteps.getGeoZoneNameElements().get(i));
             actualList = editZoneSteps.getZoneNameValues();
             expectedList = new ArrayList<>(actualList);
             Collections.sort(expectedList);
             assertThat("Country names in Geo Zone are not alphabetically sorted", actualList, contains(expectedList.toArray()));
-            geoZonesSteps = editZoneSteps.toGeoZones();
+            editZoneSteps.toGeoZones();
         }
     }
 }
